@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twitter Follow Counts</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 16px; color: #1f2328; background: #fff; }
+    h1 { font-size: 1.4rem; }
+    fieldset { border: 1px solid #d0d7de; border-radius: 6px; margin-bottom: 1rem; }
+    input[type=text] { width: 100%; box-sizing: border-box; padding: 6px; font: inherit; }
+    button { margin-top: 8px; padding: 6px 14px; font: inherit; cursor: pointer; }
+    pre { background: #f6f8fa; padding: 12px; border-radius: 6px; white-space: pre-wrap; }
+    .muted { color: #656d76; font-size: 0.9rem; }
+    .error { color: #cf222e; }
+  </style>
+</head>
+<body>
+  <h1>Twitter Follow Counts</h1>
+  <p class="muted" id="backend-status">Checking backend…</p>
+
+  <fieldset>
+    <legend>1. Run analysis (EMR Serverless Spark job)</legend>
+    <button id="run-job">Run analysis</button>
+    <p class="muted" id="job-status"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>2. Look up users</legend>
+    <label for="user-ids">User IDs (comma-separated)</label>
+    <input type="text" id="user-ids" value="214328887, 107830991">
+    <button id="lookup">Show statistics</button>
+  </fieldset>
+
+  <pre id="results"></pre>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

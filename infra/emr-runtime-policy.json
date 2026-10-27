@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListBucket",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::__DATA_BUCKET__"
+    },
+    {
+      "Sid": "ReadInputAndScripts",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::__DATA_BUCKET__/*"
+    },
+    {
+      "Sid": "WriteOutputAndLogs",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:DeleteObject"],
+      "Resource": ["arn:aws:s3:::__DATA_BUCKET__/output/*", "arn:aws:s3:::__DATA_BUCKET__/logs/*"]
+    }
+  ]
+}
